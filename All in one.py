@@ -1,6 +1,7 @@
 def start():
-    yes =["yes", "y"]
-    no =["no", "n"]
+    import random
+    yes = ["yes", "y"]
+    no = ["no", "n"]
     game = 0
     while game == 0:
      game= int(input("Pick a game 1 - 20? "))
@@ -30,9 +31,31 @@ def start():
                 start()
             else:
                 continue
+    while game == 2:
+        def numberguess():
+            number = random.randint(1,100)
+            print number
+            guesses = 0
+            print ("Guess number between 1 and 100")
+            while guesses <10:
+                guess = int(input("Your guess"))
+                if guess < number:
+                    print ("try again")
+                    guesses +=1
+                if guess > number:
+                    print ("try again")
+                    guesses +=1
+
+                if guess == number:
+                    print ("You Won")
+                    print ("it took {} number of guesses".format(guesses))
+                    playagain = input("play again")
+                    if playagain is no:
+                        start()
+                    if playagain is yes:
+                        numberguess()
+        numberguess()
 
 
-
-
-start()
+start() #keep at bottom
 
