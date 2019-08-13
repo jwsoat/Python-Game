@@ -1,10 +1,9 @@
-def start():
+def gameselector():
     import random
-    yes = ["yes", "y"]
-    no = ["no", "n"]
+    import time
     game = 0
     while game == 0:
-     game= int(input("Pick a game 1 - 2? "))
+     game= int(input("Pick a game 1 - 3? "))
     if game == 1:
         while game == 1:
             print("Game 1 Selected")
@@ -27,37 +26,71 @@ def start():
             print ("{} times {} equals {}".format(num1,num2,roundtimes))
             print ("{} divide {} equals {}".format(num1,num2,divideround))
             playagain = input("play again")
-            if playagain is no:
-                start()
-            else:
-                continue
+            if playagain == "no":
+                gameselector()
+            #else:
+                #continue
     while game == 2:
         print ("Gane 2 Selected")
         print ("Number guessing game")
         def numberguess():
             number = random.randint(1,100)
-            print number
+            print (number)
             guesses = 0
             print ("Guess number between 1 and 100")
+            guesses +=1
             while guesses <10:
                 guess = int(input("Your guess"))
+                guesses +=1
                 if guess < number:
                     print ("try again")
-                    guesses +=1
+
                 if guess > number:
                     print ("try again")
-                    guesses +=1
+
 
                 if guess == number:
+
                     print ("You Won")
                     print ("it took {} number of guesses".format(guesses))
                     playagain = input("play again")
-                    if playagain is no:
-                        start()
-                    if playagain is yes:
+                    if playagain == "no":
+                        gameselector()
+                    if playagain == "yes":
                         numberguess()
+
+                if guess =="":
+                    print("try again")
         numberguess()
+    while game == 3:
+        dicerollmin = 1
+        dicerollmax = 6
+        rollagain = "yes"
+        while rollagain == "yes" or rollagain == "y":
+            print("rolling dice")
+            time.sleep(1)
+            print("the values are")
+            print(random.randint(dicerollmin,dicerollmax))
+            print(random.randint(dicerollmin,dicerollmax))
+            rollagain = input("roll again?")
+            if rollagain == "no":
+                gameselector()
 
 
-start() #keep at bottom
+def firsttime():
+    firsttimeans = input("have you played before? ")
+    if firsttimeans == "no":
+        print("Gane 1 Simple maths  " 
+              "Game 2 Guess the Number  "
+              "Game 3 Dice Roll")
+        gameselector()
+    else:
+        gameselector()
+
+
+
+
+firsttime() #keep at bottom
+
+
 

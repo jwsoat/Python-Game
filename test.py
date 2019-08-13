@@ -1,7 +1,14 @@
+def firsttime():
+    firsttimeans = input("have you played before? ")
+    if firsttimeans == "no":
+        print("Gane 1 Simple maths  " 
+              "Game 2 Guess the Number")
+        start()
+    else:
+        start()
+
 def start():
     import random
-    yes = ["yes", "y"]
-    no = ["no", "n"]
     game = 0
     while game == 0:
      game= int(input("Pick a game 1 - 2? "))
@@ -27,37 +34,45 @@ def start():
             print ("{} times {} equals {}".format(num1,num2,roundtimes))
             print ("{} divide {} equals {}".format(num1,num2,divideround))
             playagain = input("play again")
-            if playagain is no:
+            if playagain == "no":
                 start()
-            else:
-                continue
+            #else:
+                #continue
     while game == 2:
         print ("Gane 2 Selected")
         print ("Number guessing game")
         def numberguess():
             number = random.randint(1,100)
-            print number
+            print (number)
             guesses = 0
             print ("Guess number between 1 and 100")
+            guesses +=1
             while guesses <10:
                 guess = int(input("Your guess"))
+                guesses +=1
                 if guess < number:
                     print ("try again")
-                    guesses +=1
+
                 if guess > number:
                     print ("try again")
-                    guesses +=1
+
 
                 if guess == number:
+
                     print ("You Won")
                     print ("it took {} number of guesses".format(guesses))
                     playagain = input("play again")
-                    if playagain is no:
+                    if playagain == "no":
                         start()
-                    if playagain is yes:
+                    if playagain == "yes":
                         numberguess()
+
+                if guess =="":
+                    print("try again")
         numberguess()
 
 
-start() #keep at bottom
+firsttime() #keep at bottom
+
+
 
