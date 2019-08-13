@@ -21,10 +21,10 @@ def gameselector():
             subround = round(numanssub, 2)
             roundtimes = round(numanstimes, 2)
             divideround = round(numansdivide, 2)
-            print ("{} plus {} equals {}".format(num1,num2,plusround))
-            print ("{} minus {} equals {}".format(num1,num2,subround))
-            print ("{} times {} equals {}".format(num1,num2,roundtimes))
-            print ("{} divide {} equals {}".format(num1,num2,divideround))
+            print("{} plus {} equals {}".format (num1, num2 ,plusround))
+            print("{} minus {} equals {}".format (num1, num2, subround))
+            print("{} times {} equals {}".format (num1, num2, roundtimes))
+            print("{} divide {} equals {}".format (num1, num2, divideround))
             playagain = input("play again")
             if playagain == "no":
                 gameselector()
@@ -38,10 +38,10 @@ def gameselector():
             print (number)
             guesses = 0
             print ("Guess number between 1 and 100")
-            guesses +=1
+            guesses += 1
             while guesses <10:
                 guess = int(input("Your guess"))
-                guesses +=1
+                guesses += 1
                 if guess < number:
                     print ("try again")
 
@@ -76,13 +76,12 @@ def gameselector():
             if rollagain == "no":
                 gameselector()
 
-
 def firsttime():
     firsttimeans = input("have you played before? ")
     if firsttimeans == "no":
-        print("Gane 1 Simple maths  " 
-              "Game 2 Guess the Number  "
-              "Game 3 Dice Roll")
+        print("Gane 1 Simple maths  ")
+        print("Game 2 Guess the Number  ")
+        print("Game 3 Dice Roll")
         gameselector()
     else:
         gameselector()

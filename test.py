@@ -1,17 +1,9 @@
-def firsttime():
-    firsttimeans = input("have you played before? ")
-    if firsttimeans == "no":
-        print("Gane 1 Simple maths  " 
-              "Game 2 Guess the Number")
-        start()
-    else:
-        start()
-
-def start():
+def gameselector():
     import random
+    import time
     game = 0
     while game == 0:
-     game= int(input("Pick a game 1 - 2? "))
+     game= int(input("Pick a game 1 - 3? "))
     if game == 1:
         while game == 1:
             print("Game 1 Selected")
@@ -35,7 +27,7 @@ def start():
             print ("{} divide {} equals {}".format(num1,num2,divideround))
             playagain = input("play again")
             if playagain == "no":
-                start()
+                gameselector()
             #else:
                 #continue
     while game == 2:
@@ -61,15 +53,43 @@ def start():
 
                     print ("You Won")
                     print ("it took {} number of guesses".format(guesses))
-                    playagain = input("play again")
-                    if playagain == "no":
-                        start()
-                    if playagain == "yes":
-                        numberguess()
+                    playagain()
 
                 if guess =="":
                     print("try again")
         numberguess()
+    while game == 3:
+        dicerollmin = 1
+        dicerollmax = 6
+        rollagain = "yes"
+        while rollagain == "yes" or rollagain == "y":
+            print("rolling dice")
+            time.sleep(1)
+            print("the values are")
+            print(random.randint(dicerollmin,dicerollmax))
+            print(random.randint(dicerollmin,dicerollmax))
+            rollagain = input("roll again?")
+            if rollagain == "no":
+                gameselector()
+    def playagain():
+        playagain = input("play again")
+        if playagain == "no":
+            gameselector()
+
+
+
+
+def firsttime():
+    firsttimeans = input("have you played before? ")
+    if firsttimeans == "no":
+        print("Gane 1 Simple maths  ")
+        print("Game 2 Guess the Number  ")
+        print("Game 3 Dice Roll")
+        gameselector()
+    else:
+        gameselector()
+
+
 
 
 firsttime() #keep at bottom
