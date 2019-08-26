@@ -76,6 +76,9 @@ def gameselector():
             if rollagain == "no":
                 gameselector()
 
+
+
+
 def firsttime():
     firsttimeans = input("have you played before? ")
     if firsttimeans == "no":
@@ -89,7 +92,8 @@ def firsttime():
 
 
 
-firsttime() #keep at bottom
+
+firsttime() # keep at bottom
 
 
 
